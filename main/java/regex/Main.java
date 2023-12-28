@@ -1,6 +1,8 @@
 package regex;
 
 import java.util.Scanner;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class Main {
     static Scanner scanner = new Scanner(System.in);
@@ -19,7 +21,8 @@ public class Main {
         new LastName(lastName);
 
         // UC3
-        new Email();
+        Email obj = new Email();
+        obj.emailTest();
 
         // UC4
         new MobileNumber();
