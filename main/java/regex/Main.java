@@ -8,12 +8,18 @@ public class Main {
     public static void main(String[] args) {
         System.out.println("Hello world!");
 
+        // UC1
         System.out.print("Enter your first name: ");
         String firstName = scanner.nextLine();
         new FirstName(firstName);
 
+        // UC2
         System.out.print("Enter your last name: ");
         String lastName = scanner.nextLine();
         new LastName(lastName);
+
+        // UC3
+        new Email();
+
     }
 }
