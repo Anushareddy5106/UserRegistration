@@ -19,7 +19,8 @@ public class Main {
         new LastName(lastName);
 
         // UC3
-        new Email();
+        Email email = new Email();
+        email.emailTest();
 
     }
 }
