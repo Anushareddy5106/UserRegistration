@@ -1,26 +1,21 @@
 package regex;
 
-import java.util.Scanner;
 import java.util.regex.Pattern;
 
 public class FirstName {
-    Scanner scanner = new Scanner(System.in);
 
-    public FirstName() {
-
-        System.out.print("Enter your first name: ");
-        String firstName = scanner.nextLine();
+    public FirstName(String firstName) {
 
         boolean isValid = validateFirstName(firstName);
 
         if (isValid) {
-            System.out.println("Valid first name: " + firstName);
+            System.out.println("Valid name: " + firstName);
         } else {
-            System.out.println("Please enter a valid first name.");
+            System.out.println("Please enter a valid name.");
         }
     }
 
-    private boolean validateFirstName(String firstName) {
+    public boolean validateFirstName(String firstName) {
 
         String regex = "^[A-Z][a-zA-Z]{2,}$";
 
