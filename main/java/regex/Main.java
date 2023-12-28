@@ -21,5 +21,8 @@ public class Main {
         // UC3
         new Email();
 
+        // UC4
+        new MobileNumber();
+
     }
 }

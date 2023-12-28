@@ -8,7 +8,7 @@ public class Email {
     Email() {
         Scanner scanner = new Scanner(System.in);
 
-        System.out.print("Enter your first name: ");
+        System.out.print("Enter your email: ");
         String email = scanner.nextLine();
 
         boolean isValid = validateEmail(email);
