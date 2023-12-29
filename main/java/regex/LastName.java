@@ -2,7 +2,7 @@ package regex;
 
 public class LastName extends FirstName {
 
-    LastName(String lastName) {
+    public LastName(String lastName) {
         super(lastName);
     }
 }

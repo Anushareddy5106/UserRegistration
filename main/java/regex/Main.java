@@ -27,5 +27,8 @@ public class Main {
         // UC4
         new MobileNumber();
 
+        // UC5
+        Password ps = new Password();
+
     }
 }

@@ -6,12 +6,23 @@ import java.util.regex.Pattern;
 
 public class Email {
 
-    Email() {
+    public Email() {
         Scanner scanner = new Scanner(System.in);
 
         System.out.print("Enter your email: ");
         String email = scanner.nextLine();
 
+        boolean isValid = validateEmail(email);
+
+        if (isValid) {
+            System.out.println("Valid email: " + email);
+        } else {
+            System.out.println("Please enter a valid email.");
+        }
+
+    }
+
+    public Email(String email) {
         boolean isValid = validateEmail(email);
 
         if (isValid) {

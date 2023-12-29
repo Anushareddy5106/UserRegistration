@@ -1,22 +1,38 @@
 package regex;
 
+import java.util.Scanner;
 import java.util.regex.Pattern;
 
 public class Password {
-    private static boolean validatePassword(String password) {
+    Password() {
+        Scanner scanner = new Scanner(System.in);
 
-        String rule1 = "^.{8,}$"; // Minimum 8 characters
-        String rule2 = ".*[A-Z].*"; // At least 1 uppercase letter
-        String rule3 = ".*\\d.*"; // At least 1 numeric digit
-        String rule4 = ".*[!@#$%^&*()_+\\-=\\[\\]{};':\"\\\\|,.<>\\/?].*"; // Exactly 1 special character
+        System.out.print("Enter your password: ");
+        String password = scanner.nextLine();
 
-        // Combine the rules into a single regex pattern
-        String combinedRegex = rule1 + rule2 + rule3 + rule4;
+        boolean isValid = validatePassword(password);
 
-        // Compile the regex pattern
-        Pattern pattern = Pattern.compile(combinedRegex);
+        if (isValid) {
+            System.out.println("Valid password: " + password);
+        } else {
+            System.out.println("Please enter a valid password.");
+        }
+    }
 
-        // Match the input against the pattern
+    public Password(String password) {
+        boolean isValid = validatePassword(password);
+
+        if (isValid) {
+            System.out.println("Valid password: " + password);
+        } else {
+            System.out.println("Please enter a valid password.");
+        }
+    }
+
+    public boolean validatePassword(String password) {
+        String regex = "(?=.*[A-Z])(?=.*[0-9])(?=[a-zA-Z0-9]*[^a-zA-Z0-9][a-zA-Z0-9]*$)(.){8,}";
+        Pattern pattern = Pattern.compile(regex);
+
         return pattern.matcher(password).matches();
     }
 }
