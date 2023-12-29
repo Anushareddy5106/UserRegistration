@@ -4,7 +4,7 @@ import java.util.Scanner;
 import java.util.regex.Pattern;
 
 public class Password {
-    Password() {
+    public Password() {
         Scanner scanner = new Scanner(System.in);
 
         System.out.print("Enter your password: ");

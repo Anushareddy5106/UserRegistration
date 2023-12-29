@@ -4,6 +4,10 @@ import java.util.regex.Pattern;
 
 public class FirstName {
 
+    public FirstName() {
+
+    }
+
     public FirstName(String firstName) {
 
         boolean isValid = validateFirstName(firstName);
