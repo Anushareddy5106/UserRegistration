@@ -3,6 +3,7 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 
 import regex.Email;
+import regex.ValidationException;
 
 public class EmailValidation {
 
@@ -35,8 +36,8 @@ public class EmailValidation {
             "abc@gmail.com.aa.au, false"
     })
 
-    void testEmailValidation(String email, boolean expected) {
-        boolean result = new Email().validateEmail(email);
+    void testEmailValidation(String email, boolean expected) throws ValidationException {
+        boolean result = new Email().validate(email);
         assertEquals(expected, result);
     }
 

@@ -1,40 +1,17 @@
 package regex;
 
-import java.util.Scanner;
 import java.util.regex.Pattern;
 
 public class MobileNumber {
+    private String regex = "^\\d{2,3} \\d{10}$";
+    private Pattern pattern = Pattern.compile(regex);
 
-    public MobileNumber() {
-        Scanner scanner = new Scanner(System.in);
+    public boolean validate(String mobileNumber) throws ValidationException {
+        boolean isValid = pattern.matcher(mobileNumber).matches();
 
-        System.out.print("Enter your Mobile Number: ");
-        String mobileNumber = scanner.nextLine();
+        if (!isValid)
+            throw new ValidationException(ValidationExceptionType.MobileNumberException, "Mobile number is invalid");
 
-        boolean isValid = validateMobileNumber(mobileNumber);
-
-        if (isValid) {
-            System.out.println("Valid name: " + mobileNumber);
-        } else {
-            System.out.println("Please enter a Mobile Number.");
-        }
-    }
-
-    public MobileNumber(String mobileNumber) {
-        boolean isValid = validateMobileNumber(mobileNumber);
-
-        if (isValid) {
-            System.out.println("Valid name: " + mobileNumber);
-        } else {
-            System.out.println("Please enter a Mobile Number.");
-        }
-    }
-
-    public boolean validateMobileNumber(String mobileNumber) {
-        String regex = "^\\d{2} \\d{10}$";
-
-        Pattern pattern = Pattern.compile(regex);
-
-        return pattern.matcher(mobileNumber).matches();
+        return isValid;
     }
 }

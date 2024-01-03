@@ -3,28 +3,17 @@ package regex;
 import java.util.regex.Pattern;
 
 public class FirstName {
+    private String regex = "^[A-Z][a-zA-Z]{2,}$";
+    private Pattern pattern = Pattern.compile(regex);
 
-    public FirstName() {
+    public boolean validate(String firstName) throws ValidationException {
 
+        boolean isValid = pattern.matcher(firstName).matches();
+
+        if (!isValid)
+            throw new ValidationException(ValidationExceptionType.FirstNameException, "Firstname is invalid");
+
+        return isValid;
     }
 
-    public FirstName(String firstName) {
-
-        boolean isValid = validateFirstName(firstName);
-
-        if (isValid) {
-            System.out.println("Valid name: " + firstName);
-        } else {
-            System.out.println("Please enter a valid name.");
-        }
-    }
-
-    public boolean validateFirstName(String firstName) {
-
-        String regex = "^[A-Z][a-zA-Z]{2,}$";
-
-        Pattern pattern = Pattern.compile(regex);
-
-        return pattern.matcher(firstName).matches();
-    }
 }
